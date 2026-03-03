@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap");
+
+:root {
+  --bg: #050a0f;
+  --surface: #0d1720;
+  --surface2: #112030;
+  --accent: #dd0031;
+  --accent2: #ff6b35;
+  --glow: rgba(221, 0, 49, 0.3);
+  --text: #e8f4ff;
+  --muted: #6a8aaa;
+  --border: rgba(221, 0, 49, 0.2);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Syne", sans-serif;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(221, 0, 49, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(221, 0, 49, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+  body {
+    cursor: auto;
+  }
+}
+
+body.high-contrast {
+  background: #000 !important;
+  color: #ffff00 !important;
+}
+
+body.high-contrast::before {
+  background-image: none;
+}
+
+body.high-contrast * {
+  border-color: #ffff00 !important;
+}
+
+body.high-contrast h1,
+body.high-contrast h2,
+body.high-contrast h3,
+body.high-contrast h4,
+body.high-contrast h5,
+body.high-contrast h6,
+body.high-contrast p,
+body.high-contrast span,
+body.high-contrast a,
+body.high-contrast li,
+body.high-contrast div {
+  color: #ffff00 !important;
+}
+
+body.high-contrast a,
+body.high-contrast button,
+body.high-contrast [tabindex='0'] {
+  outline: 2px solid #ffff00 !important;
+  outline-offset: 2px;
+}

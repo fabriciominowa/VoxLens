@@ -1,0 +1,21 @@
+<nav>
+  <div class="logo">
+    <span class="bracket">&lt;</span><span class="ng">ng</span><span class="bracket">/&gt;</span>
+    <span>Fabricio Minowa</span>
+  </div>
+
+  <div class="nav-actions">
+    <ul>
+      <li><a href="#skills">{{ i18n.t('nav.skills') }}</a></li>
+      <li><a href="#projects">{{ i18n.t('nav.projects') }}</a></li>
+      <li><a href="#about">{{ i18n.t('nav.about') }}</a></li>
+      <li><a href="#experience">{{ i18n.t('nav.experience') }}</a></li>
+      <li><a href="#contact" class="nav-cta">{{ i18n.t('nav.contact') }}</a></li>
+    </ul>
+
+    <div class="lang-switch">
+      <button type="button" [class.active]="i18n.language() === 'en'" (click)="i18n.setLanguage('en')">EN</button>
+      <button type="button" [class.active]="i18n.language() === 'pt'" (click)="i18n.setLanguage('pt')">PT</button>
+    </div>
+  </div>
+</nav>

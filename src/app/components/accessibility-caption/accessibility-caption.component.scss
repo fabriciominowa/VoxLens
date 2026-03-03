@@ -1,0 +1,16 @@
+.caption-container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+  padding: 0.9rem 1.2rem;
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #ffff00;
+  background: rgba(0, 0, 0, 0.9);
+  border-top: 2px solid #ffff00;
+}

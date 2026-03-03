@@ -1,0 +1,120 @@
+:host { display: block; }
+
+.about-section {
+  padding: 120px 60px;
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(180deg, transparent 0%, rgba(221, 0, 49, 0.02) 50%, transparent 100%);
+}
+
+.about-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; letter-spacing: -2px; line-height: 1.1; margin-bottom: 30px; }
+.about-text p { color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; line-height: 1.9; margin-bottom: 20px; }
+.about-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+.about-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; padding: 8px 16px; border: 1px solid var(--border); color: var(--muted); letter-spacing: 2px; text-transform: uppercase; }
+
+.card-stage { perspective: 1400px; }
+.flip-card { width: 100%; max-width: 400px; height: 520px; margin: 0 auto; position: relative; transform-style: preserve-3d; transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.flip-card.flipped { transform: rotateY(180deg); }
+.card-face { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; }
+.card-front { background: var(--surface); border: 1px solid rgba(221, 0, 49, 0.25); }
+.card-back { background: #030608; border: 1px solid rgba(221, 0, 49, 0.3); transform: rotateY(180deg); }
+
+.photo-area {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: #08121c;
+  border: 0;
+  width: 100%;
+  padding: 0;
+  display: block;
+  text-align: inherit;
+  cursor: pointer;
+}
+.photo-area:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.photo-area::before,
+.photo-area::after { content: ''; position: absolute; inset: 0; pointer-events: none; mix-blend-mode: screen; }
+.photo-area::before {
+  background: repeating-linear-gradient(180deg, rgba(255,255,255,.02) 0, rgba(255,255,255,.02) 2px, transparent 2px, transparent 4px);
+  animation: glitchScan 2.8s linear infinite;
+}
+.photo-area::after {
+  background: linear-gradient(90deg, rgba(221,0,49,.16), transparent 35%, rgba(0,194,255,.13) 70%, transparent);
+  opacity: .5;
+  animation: glitchShift 3.2s steps(2,end) infinite;
+}
+.photo-img { width: 100%; height: 100%; object-fit: cover; animation: glitchImage 2.6s steps(2,end) infinite; }
+.photo-hover-overlay { position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 24px; background: linear-gradient(to top, rgba(0,0,0,.75), transparent); }
+.play-pill { background: rgba(221,0,49,.85); color: #fff; padding: 10px 20px; font-family: 'JetBrains Mono', monospace; font-size: .72rem; }
+.scan-line { position: absolute; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(221,0,49,.3), transparent); animation: scanAnim 3.5s ease-in-out infinite; }
+
+.corner { position: absolute; width: 18px; height: 18px; border-color: rgba(221,0,49,.35); border-style: solid; }
+.corner.tl { top: 10px; left: 10px; border-width: 2px 0 0 2px; }
+.corner.tr { top: 10px; right: 10px; border-width: 2px 2px 0 0; }
+.corner.bl { bottom: 10px; left: 10px; border-width: 0 0 2px 2px; }
+.corner.br { bottom: 10px; right: 10px; border-width: 0 2px 2px 0; }
+
+.card-info-strip,
+.card-back-strip { padding: 22px 28px; background: linear-gradient(135deg, #0d1720 0%, #192a40 100%); border-top: 1px solid rgba(221,0,49,.2); }
+.card-name,
+.back-name { font-size: 1.1rem; font-weight: 800; }
+.card-name .last,
+.back-name .last { color: var(--accent); }
+.card-role,
+.back-hint { font-family: 'JetBrains Mono', monospace; font-size: .68rem; color: var(--muted); }
+
+.video-area { flex: 1; position: relative; background: #000; display: flex; align-items: center; justify-content: center; }
+.video-el { width: 100%; height: 100%; object-fit: cover; }
+.tv-boot-overlay { position: absolute; inset: 0; pointer-events: none; opacity: 0; }
+.tv-boot-overlay.active { opacity: 1; animation: tvPowerOn .7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.video-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(221, 0, 49, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #fff;
+}
+.video-close-btn.visible { display: flex; }
+.video-close-btn:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+.flip-hint-area { text-align: center; margin-top: 20px; font-family: 'JetBrains Mono', monospace; font-size: .7rem; color: var(--muted); letter-spacing: 2px; }
+.spin-icon { display: inline-block; }
+
+@keyframes scanAnim { 0%{top:0;opacity:0;} 5%{opacity:1;} 95%{opacity:1;} 100%{top:100%;opacity:0;} }
+@keyframes glitchImage {
+  0%,87%,100% { transform: translate(0,0); filter: contrast(1.04) saturate(1.05); }
+  88% { transform: translate(-2px,1px); filter: hue-rotate(-8deg) contrast(1.25); }
+  90% { transform: translate(2px,-1px); }
+  92% { transform: translate(-1px,1px); }
+}
+@keyframes glitchScan { 0%{transform:translateY(-100%);} 100%{transform:translateY(100%);} }
+@keyframes glitchShift { 0%,90%,100%{transform:translateX(0);opacity:.45;} 91%{transform:translateX(-4px);opacity:.75;} 94%{transform:translateX(4px);} }
+@keyframes tvPowerOn {
+  0% { background: radial-gradient(circle at center, rgba(255,255,255,.95), rgba(255,255,255,.95)), #fff; transform: scaleY(.02); filter: blur(4px) contrast(2); }
+  38% { transform: scaleY(.08); }
+  58% { transform: scaleY(1); filter: blur(1px) contrast(1.6); }
+  100% { background: transparent; transform: scaleY(1); filter: none; opacity: 0; }
+}
+
+@media (max-width: 900px) {
+  .about-section { padding: 80px 24px; }
+  .about-wrapper { grid-template-columns: 1fr; }
+  .flip-card { height: 460px; }
+}

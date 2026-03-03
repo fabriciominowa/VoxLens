@@ -1,0 +1,25 @@
+:host { display: block; }
+
+section { padding: 120px 60px; position: relative; z-index: 1; }
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; letter-spacing: -2px; line-height: 1.1; margin-bottom: 60px; }
+
+.timeline { position: relative; padding-left: 40px; }
+.timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: linear-gradient(180deg, var(--accent) 0%, rgba(221,0,49,.1) 100%); }
+.timeline-item { position: relative; padding-bottom: 60px; }
+.timeline-item::before { content: ''; position: absolute; left: -44px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+.timeline-date { font-family: 'JetBrains Mono', monospace; font-size: .7rem; color: var(--accent); letter-spacing: 2px; margin-bottom: 8px; }
+.timeline-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 6px; }
+.timeline-company { color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: .8rem; margin-bottom: 16px; }
+.timeline-desc { color: var(--muted); font-size: .9rem; line-height: 1.7; }
+
+@media (max-width: 900px) {
+  section { padding: 80px 24px; }
+}

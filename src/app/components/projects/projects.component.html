@@ -1,0 +1,30 @@
+<section id="projects">
+  <div class="section-label">portfolio</div>
+  <h2>{{ i18n.t('projects.title') }}</h2>
+  <div class="projects-grid">
+    <div class="project-card reveal" smartRead tabindex="0" smartReadContext="Projeto em destaque">
+      <div>
+        <div class="project-num">// 001 - Featured</div>
+        <div class="project-title">{{ i18n.t('projects.p1.title') }}</div>
+        <div class="project-desc">{{ i18n.t('projects.p1.desc') }}</div>
+        <div class="skill-tags"><span class="tag">Angular 17</span><span class="tag">NgRx</span><span class="tag">WebSockets</span></div>
+          <a href="https://fin-vest-amber.vercel.app/" target="_blank" rel="noopener" class="fiinvesst-btn">Acessar Fiinvesst B2B</a>
+      </div>
+      <div class="project-visual">
+        <img src="images/Projetos/FinVest/Fiivest.png" alt="{{ i18n.t('projects.p1.title') }}">
+      </div>
+    </div>
+    <div class="project-card reveal" style="transition-delay:.1s" smartRead tabindex="0" smartReadContext="Projeto 2">
+      <div class="project-num">// 002</div>
+      <div class="project-title">{{ i18n.t('projects.p2.title') }}</div>
+      <div class="project-desc">{{ i18n.t('projects.p2.desc') }}</div>
+      <div class="skill-tags"><span class="tag">Angular CDK</span><span class="tag">Storybook</span><span class="tag">WCAG 2.1</span></div>
+    </div>
+    <div class="project-card reveal" style="transition-delay:.2s" smartRead tabindex="0" smartReadContext="Projeto 3">
+      <div class="project-num">// 003</div>
+      <div class="project-title">{{ i18n.t('projects.p3.title') }}</div>
+      <div class="project-desc">{{ i18n.t('projects.p3.desc') }}</div>
+      <div class="skill-tags"><span class="tag">Angular Universal</span><span class="tag">PIX</span><span class="tag">PWA</span></div>
+    </div>
+  </div>
+</section>

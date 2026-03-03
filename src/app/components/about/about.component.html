@@ -1,0 +1,91 @@
+<section id="about" class="about-section">
+  <div class="about-wrapper">
+    <div
+      id="sobre-mim"
+      class="about-text reveal"
+      smartRead
+      tabindex="0"
+      smartReadContext="Biografia principal"
+    >
+      <div class="section-label">{{ i18n.t('about.label') }}</div>
+      <h2>Fabricio<br /><span style="color:var(--accent)">Moraes Minowa</span></h2>
+      <p>{{ i18n.t('about.p1') }}</p>
+      <p>{{ i18n.t('about.p2') }}</p>
+      <div class="about-badges">
+        <span class="about-badge">Sao Paulo, SP</span>
+        <span class="about-badge">CLT & PJ</span>
+        <span class="about-badge">Remote-first</span>
+      </div>
+    </div>
+
+    <div class="card-stage reveal" style="transition-delay:.2s">
+      <div class="flip-card" [class.flipped]="isFlipped">
+        <div class="card-face card-front">
+          <div class="scan-line"></div>
+          <div class="corner tl"></div><div class="corner tr"></div>
+          <div class="corner bl"></div><div class="corner br"></div>
+
+          <button
+            #photoTrigger
+            type="button"
+            class="photo-area has-photo"
+            (click)="onPhotoAreaClick(videoEl)"
+            [attr.aria-label]="i18n.t('about.play')"
+          >
+            <img class="photo-img" [src]="photoUrl" alt="Fabricio Moraes Minowa" />
+            <div class="photo-hover-overlay">
+              <div class="play-pill">{{ i18n.t('about.play') }}</div>
+            </div>
+          </button>
+
+          <div class="card-info-strip">
+            <div class="card-name">Fabricio <span class="last">Moraes Minowa</span></div>
+            <div class="card-role">{{ i18n.t('about.role') }}</div>
+          </div>
+        </div>
+
+        <div
+          class="card-face card-back"
+          [cdkTrapFocus]="isFlipped"
+          [cdkTrapFocusAutoCapture]="isFlipped"
+        >
+          <div class="video-area">
+            <video
+              #videoEl
+              class="video-el"
+              [src]="videoUrl"
+              style="display:block"
+              loop
+              playsinline
+              (click)="onVideoClick(videoEl)"
+            ></video>
+            <div class="tv-boot-overlay" [class.active]="tvBooting"></div>
+
+            <button
+              type="button"
+              class="video-close-btn"
+              [class.visible]="showVideoControls"
+              (click)="flipBack(videoEl)"
+              [attr.aria-label]="i18n.t('about.close')"
+            >
+              X
+            </button>
+          </div>
+
+          <div class="card-back-strip">
+            <div>
+              <div class="back-name">Fabricio <span class="last">Minowa</span></div>
+              <div class="back-hint">{{ i18n.t('about.close') }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-hint-area">
+        <span class="spin-icon">?</span>
+        {{ hint }}
+        <span class="spin-icon" style="animation-direction:reverse">?</span>
+      </div>
+    </div>
+  </div>
+</section>
