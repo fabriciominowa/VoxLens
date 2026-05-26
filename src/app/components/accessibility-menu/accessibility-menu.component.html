@@ -1,0 +1,58 @@
+<div class="accessibility-wrapper" [class.open]="isOpen">
+  <button 
+    class="menu-toggle" 
+    (click)="toggleMenu()" 
+    [attr.aria-expanded]="isOpen"
+    aria-label="Menu de Acessibilidade"
+  >
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M12 8v8M8 12h8"/>
+    </svg>
+  </button>
+
+  <div class="menu-content" *ngIf="isOpen" role="menu">
+    <div class="menu-header">
+      Acessibilidade
+    </div>
+    
+    <div class="menu-item">
+      <label>
+        <span>Alto Contraste</span>
+        <button 
+          role="switch" 
+          [attr.aria-checked]="acessibilidade.highContrast$ | async"
+          (click)="acessibilidade.setHighContrast(!acessibilidade.isHighContrast)"
+        >
+          <div class="slider"></div>
+        </button>
+      </label>
+    </div>
+
+    <div class="menu-item">
+      <label>
+        <span>Narração Assistida</span>
+        <button 
+          role="switch" 
+          [attr.aria-checked]="acessibilidade.narrationEnabled$ | async"
+          (click)="acessibilidade.setNarration(!acessibilidade.isNarrationEnabled)"
+        >
+          <div class="slider"></div>
+        </button>
+      </label>
+    </div>
+
+    <div class="menu-item">
+      <label>
+        <span>Reduzir Movimento</span>
+        <button 
+          role="switch" 
+          [attr.aria-checked]="acessibilidade.reducedMotion$ | async"
+          (click)="acessibilidade.setReducedMotion(!acessibilidade.isReducedMotion)"
+        >
+          <div class="slider"></div>
+        </button>
+      </label>
+    </div>
+  </div>
+</div>

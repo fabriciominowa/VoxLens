@@ -2,10 +2,27 @@
   display: block;
 }
 
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: #dd0031;
+  color: white;
+  padding: 8px 16px;
+  z-index: 10001;
+  transition: top 0.3s;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
 .cursor {
   width: 12px;
   height: 12px;
-  background: var(--accent);
+  background: #dd0031;
   border-radius: 50%;
   position: fixed;
   top: 0;
@@ -25,6 +42,15 @@
   left: 0;
   pointer-events: none;
   z-index: 9998;
+}
+
+body.high-contrast .cursor,
+body.high-contrast .cursor-ring {
+  display: none !important;
+}
+
+body.high-contrast {
+  cursor: auto !important;
 }
 
 .orb {
@@ -63,21 +89,13 @@
 }
 
 @keyframes orbFloat {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-  33% {
-    transform: translate(30px, -50px) scale(1.05);
-  }
-  66% {
-    transform: translate(-20px, 30px) scale(0.95);
-  }
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.05); }
+  66% { transform: translate(-20px, 30px) scale(0.95); }
 }
 
 @media (max-width: 900px) {
-  .cursor,
-  .cursor-ring {
+  .cursor, .cursor-ring {
     display: none;
   }
 }

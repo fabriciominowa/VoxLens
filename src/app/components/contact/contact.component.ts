@@ -1,9 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { I18nService } from '../../i18n.service';
+import { SmartReadDirective } from '../../directives/smart-read.directive';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
+  imports: [SmartReadDirective],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
 })

@@ -30,6 +30,10 @@ export class SmartReadDirective implements OnInit, OnDestroy {
           return;
         }
 
+        if (!this.acessibilidade.isNarrationEnabled) {
+          return;
+        }
+
         const texto = (this.smartReadText ?? this.elementRef.nativeElement.innerText ?? '').trim();
         if (!texto) {
           return;

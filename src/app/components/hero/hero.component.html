@@ -1,5 +1,5 @@
 <section class="hero">
-  <div class="hero-content">
+  <div class="hero-content" smartRead tabindex="0" smartReadContext="Resumo da secao hero">
     <div class="hero-tag">{{ i18n.t('hero.tag') }}</div>
     <h1>
       <span class="line"><span>{{ i18n.t('hero.l1') }}</span></span>
@@ -8,8 +8,8 @@
     </h1>
     <p class="hero-desc">{{ i18n.t('hero.desc') }}</p>
     <div class="hero-btns">
-      <a href="#projects" class="btn-primary">{{ i18n.t('hero.cta.projects') }}</a>
-      <a href="#about" class="btn-ghost">{{ i18n.t('hero.cta.about') }}</a>
+      <a href="#projects" class="btn-primary" smartRead smartReadContext="Acao principal da Hero">{{ i18n.t('hero.cta.projects') }}</a>
+      <a href="#about" class="btn-ghost" smartRead smartReadContext="Acao secundaria da Hero">{{ i18n.t('hero.cta.about') }}</a>
     </div>
     <div class="hero-angular-badge">
       <div class="ng-icon">
@@ -50,7 +50,7 @@
     </div>
   </div>
 
-  <div class="hero-code">
+  <div class="hero-code" aria-hidden="true">
     <div class="code-header">
       <div class="code-dot" style="background:#ff5f57"></div>
       <div class="code-dot" style="background:#febc2e"></div>

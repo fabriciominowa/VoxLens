@@ -1,3 +1,5 @@
+<a href="#main-content" class="skip-link">Pular para o conteúdo</a>
+
 <div class="cursor" [style.left.px]="mouseX - 6" [style.top.px]="mouseY - 6"></div>
 <div class="cursor-ring" [style.left.px]="ringX - 20" [style.top.px]="ringY - 20"></div>
 
@@ -6,11 +8,16 @@
 <div class="orb orb3"></div>
 
 <app-navbar></app-navbar>
-<app-hero></app-hero>
-<app-skills></app-skills>
-<app-projects></app-projects>
-<app-about></app-about>
-<app-experience></app-experience>
-<app-contact></app-contact>
+
+<main id="main-content">
+  <app-hero></app-hero>
+  <app-skills></app-skills>
+  <app-projects></app-projects>
+  <app-about></app-about>
+  <app-experience></app-experience>
+  <app-contact></app-contact>
+</main>
+
 <app-footer></app-footer>
 <app-accessibility-caption></app-accessibility-caption>
+<app-accessibility-menu></app-accessibility-menu>

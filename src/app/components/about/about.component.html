@@ -29,7 +29,7 @@
             #photoTrigger
             type="button"
             class="photo-area has-photo"
-            (click)="onPhotoAreaClick(videoEl)"
+            (click)="onPhotoAreaClick()"
             [attr.aria-label]="i18n.t('about.play')"
           >
             <img class="photo-img" [src]="photoUrl" alt="Fabricio Moraes Minowa" />
@@ -50,22 +50,13 @@
           [cdkTrapFocusAutoCapture]="isFlipped"
         >
           <div class="video-area">
-            <video
-              #videoEl
-              class="video-el"
-              [src]="videoUrl"
-              style="display:block"
-              loop
-              playsinline
-              (click)="onVideoClick(videoEl)"
-            ></video>
             <div class="tv-boot-overlay" [class.active]="tvBooting"></div>
 
             <button
               type="button"
               class="video-close-btn"
               [class.visible]="showVideoControls"
-              (click)="flipBack(videoEl)"
+              (click)="flipBack()"
               [attr.aria-label]="i18n.t('about.close')"
             >
               X

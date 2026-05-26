@@ -87,4 +87,17 @@ h2 {
   section { padding: 80px 24px; }
   .projects-grid { grid-template-columns: 1fr; }
   .project-card:first-child { grid-template-columns: 1fr; }
+  .project-card { padding: 24px; }
+  .project-title { font-size: 1.3rem; }
+  .fiinvesst-btn {
+    width: 100%;
+    text-align: center;
+    margin-top: 14px;
+  }
+}
+
+@media (max-width: 520px) {
+  section { padding: 72px 16px; }
+  h2 { margin-bottom: 40px; }
+  .project-card { padding: 18px; }
 }

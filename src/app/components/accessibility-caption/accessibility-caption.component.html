@@ -1,7 +1,9 @@
-@if (acessibilidade.legenda$ | async; as legenda) {
-  @if (legenda) {
-    <aside class="caption-container" aria-live="polite" aria-atomic="true">
-      {{ legenda }}
-    </aside>
+@if (acessibilidade.legendaAtiva$ | async) {
+  @if (acessibilidade.legenda$ | async; as legenda) {
+    @if (legenda) {
+      <aside class="caption-container" aria-live="polite" aria-atomic="true">
+        {{ legenda }}
+      </aside>
+    }
   }
 }

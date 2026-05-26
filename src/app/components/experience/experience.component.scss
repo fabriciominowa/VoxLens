@@ -19,6 +19,14 @@ h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; letter-spacing: -2px
 .timeline-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 6px; }
 .timeline-company { color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: .8rem; margin-bottom: 16px; }
 .timeline-desc { color: var(--muted); font-size: .9rem; line-height: 1.7; }
+.timeline-list {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  padding-left: 18px;
+  display: grid;
+  gap: 10px;
+}
 
 @media (max-width: 900px) {
   section { padding: 80px 24px; }

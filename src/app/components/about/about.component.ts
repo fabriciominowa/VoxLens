@@ -19,36 +19,24 @@ export class AboutComponent {
   showVideoControls = false;
   tvBooting = false;
   private tvBootTimer: ReturnType<typeof setTimeout> | null = null;
-  private activeVideoEl?: HTMLVideoElement;
 
   photoUrl = 'images/perfil/perfil.jpeg';
-  videoUrl = 'assets/profile/fabricio-video.mp4';
 
   get hint(): string {
     return this.i18n.t('about.hint');
   }
 
-  onPhotoAreaClick(videoEl: HTMLVideoElement): void {
-    this.flipToBack(videoEl);
+  onPhotoAreaClick(): void {
+    this.flipToBack();
   }
 
-  onVideoClick(videoEl: HTMLVideoElement): void {
-    if (videoEl.paused) {
-      void videoEl.play();
-      return;
-    }
-    videoEl.pause();
-  }
-
-  flipToBack(videoEl: HTMLVideoElement): void {
-    this.activeVideoEl = videoEl;
+  flipToBack(): void {
     this.isFlipped = true;
     this.showVideoControls = true;
     this.startTvBoot();
-    void videoEl.play();
   }
 
-  flipBack(videoEl: HTMLVideoElement): void {
+  flipBack(): void {
     this.isFlipped = false;
     this.showVideoControls = false;
     this.tvBooting = false;
@@ -56,19 +44,16 @@ export class AboutComponent {
       clearTimeout(this.tvBootTimer);
       this.tvBootTimer = null;
     }
-    videoEl.pause();
-    videoEl.currentTime = 0;
-    this.activeVideoEl = undefined;
     setTimeout(() => this.photoTrigger?.nativeElement.focus(), 60);
   }
 
   @HostListener('document:keydown.escape')
   onEscape(): void {
-    if (!this.isFlipped || !this.activeVideoEl) {
+    if (!this.isFlipped) {
       return;
     }
 
-    this.flipBack(this.activeVideoEl);
+    this.flipBack();
   }
 
   private startTvBoot(): void {

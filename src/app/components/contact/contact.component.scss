@@ -57,3 +57,12 @@ p {
 @media (max-width: 900px) {
   .contact-section { padding: 80px 24px; }
 }
+
+@media (max-width: 520px) {
+  .contact-section { padding: 72px 16px; }
+  .cv-btn,
+  .contact-link {
+    width: 100%;
+    text-align: center;
+  }
+}
